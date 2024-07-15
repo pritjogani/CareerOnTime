@@ -4,11 +4,16 @@ const app = express();
 const userrouter = require('./router/userrouter');
 const connectdb = require("./utils/db")
 const jobservice = require("./router/jobservice")
+const cors = require('cors');
+const jobapply = require('./router/jobapplication')
 
+
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth",userrouter)
-app.use("/api/hr/addjob",jobservice)
+app.use("/api/hr",jobservice)
+app.use("/api/job",jobapply);
 
 
 

@@ -8,7 +8,7 @@ const jobPostingSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true
-    },
+    }, 
     department: {
         type: String,
         required: true
@@ -18,7 +18,7 @@ const jobPostingSchema = new mongoose.Schema({
         required: true
     },
     salary: {
-        type: Number,
+        type: String,
         required: true
     },
     jobType: {
@@ -54,7 +54,7 @@ const jobPostingSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
-    },
+    }, 
     status: {
         type: String,
         enum: ['Open', 'Closed'],

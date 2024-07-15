@@ -26,7 +26,7 @@ if(userexist){
 if(role === "hr")
 {
 
-    const hrcreated = await User.create({username,password,email,city,phone,companyname,age,hr:true})
+    const hrcreated = await User.create({username,password,email,city,phone,companyname,age,ishr:true})
     console.log(hrcreated)
     res.status(200).json({message: "registration succesfull", token: await hrcreated.generateToken(), userID:hrcreated._id.toString(),})
 }

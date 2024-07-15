@@ -17,15 +17,15 @@ const addJob = async (req, res) => {
         contactPhone
     } = req.body;
 
-    if (
-        !title || !description || !department || !location || !salary || !jobType ||
-        !requirements || !responsibilities || !company || !contactEmail || !contactPhone
-    ) {
-        return res.status(400).json({ message: 'All fields are required' });
-    }
+    // if (
+    //     !title || !description || !department || !location || !salary || !jobType ||
+    //     !requirements || !responsibilities || !company || !contactEmail || !contactPhone
+    // ) { 
+    //     return res.status(400).json({ message: 'All fields are required' });
+    // }
 
 
-    try {
+    try { 
         const newJob = new JobPosting({
             title,
             description,
@@ -34,7 +34,7 @@ const addJob = async (req, res) => {
             salary,
             jobType,
             requirements,
-            responsibilities,
+            responsibilities, 
             company,
             contactEmail,
             contactPhone,
@@ -59,6 +59,7 @@ const deletejob = async (req,res) =>{
     }
     }
 
+    
 const updatejobinfo = async (req,res) =>{
         try {
             const id = req.params.id;

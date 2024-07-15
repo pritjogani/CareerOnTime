@@ -1,7 +1,7 @@
 const express = require('express');
-const jobapplication = require('../controller/applyforjob');
+const jobapplication = require('../controller/applyjob');
 const router = express.Router();
 
-router.route("/jobapplication").post(jobapplication);
+router.route("/applyforjob").post(jobapplication);
 
 module.exports = router;

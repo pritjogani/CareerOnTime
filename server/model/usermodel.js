@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
         require:true
     },
 
-    hr:{
+    ishr:{
         type:Boolean,
         default:false
     },
@@ -85,7 +85,7 @@ userSchema.methods.generateToken = async function() {
         return jwt.sign({
             userId: this._id.toString(),
             email: this.email,
-            isAdmin: this.hr,
+            ishr: this.ishr, 
 
         },
         process.env.JWT_SECTECT_KEY,{

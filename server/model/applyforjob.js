@@ -13,12 +13,8 @@ const applyforjob = new mongoose.Schema({
         type: String,
         required: true
     },
-    workexp: {
-        type: String,
-        required: true
-    },
     skills: {
-        type: Number,
+        type: String,
         required: true
     },
     achievement: {
@@ -39,7 +35,7 @@ const applyforjob = new mongoose.Schema({
         required: true
     },
     expirence: {
-        type: Number,
+        type: String,
         required: true
     },
     email: {
@@ -53,6 +49,6 @@ const applyforjob = new mongoose.Schema({
    
 });
 
-const jobappluserinfo = mongoose.model('applyforjobuserinfo', applyforjob);
+const jobappluserinfo = mongoose.model('applyjob', applyforjob);
 
 module.exports = jobappluserinfo;
