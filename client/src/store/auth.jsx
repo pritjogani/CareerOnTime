@@ -14,7 +14,9 @@ export const AuthProvider = ({children})=>{
     const [token,setToken] = useState(localStorage.getItem("token"))
     const [user,setUser] = useState("");
     const [isloading ,setIsloading] = useState(true); 
+    const [jobs,setjobs] = useState([])
     const authorizationtoken = `Bearer ${token}`;
+
 
     const Logoutuser = () =>{
         setToken("");
@@ -29,6 +31,16 @@ export const AuthProvider = ({children})=>{
         setToken(serverToken);
         return localStorage.setItem("token" , serverToken);
     }
+
+    //add job opening in home portal
+const getjobs = async () =>{
+    try {
+        const responce = await fetch("http://localhost:5000/api/data/service")
+    } catch (error) {
+        
+    }
+}
+
 
 
     //jwt authentication to get the currently user data
@@ -58,7 +70,9 @@ export const AuthProvider = ({children})=>{
     }
 
 useEffect(()=>{
+    getjobs();
 userAuthentication();
+
 },[])
 
 

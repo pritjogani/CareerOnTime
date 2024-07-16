@@ -4,4 +4,5 @@ const router = express.Router();
 
 router.route("/applyforjob").post(jobapplication);
 
+
 module.exports = router;
