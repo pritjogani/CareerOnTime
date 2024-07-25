@@ -16,6 +16,7 @@ export const AuthProvider = ({children})=>{
     const [isloading ,setIsloading] = useState(true); 
     const [jobs,setjobs] = useState([])
     const authorizationtoken = `Bearer ${token}`;
+    const [hr,sethr] = useState();
 
 
     const Logoutuser = () =>{
@@ -24,6 +25,7 @@ export const AuthProvider = ({children})=>{
 
     }
     let isLoggedIn = !!token;
+    
     console.log(isLoggedIn);
 
     //any component access to this
@@ -35,9 +37,19 @@ export const AuthProvider = ({children})=>{
     //add job opening in home portal
 const getjobs = async () =>{
     try {
-        const responce = await fetch("http://localhost:5000/api/data/service")
+        const responce = await fetch("http://localhost:5000/api/hr/alljobtitle",
+            {
+                method:"GET",
+                
+            })
+            if(responce.ok)
+            {
+                const data = await responce.json();
+                console.log(data);
+                setjobs(data)
+            }
     } catch (error) {
-        
+        console.log(`jobs frontend error${error}`)
     }
 }
 
@@ -57,6 +69,7 @@ const getjobs = async () =>{
                 const data = await responce.json();
                 console.log(data.userData)
                 setUser(data.userData)
+                sethr(data.userData);
                 setIsloading(false);
             }
             else{
@@ -70,7 +83,7 @@ const getjobs = async () =>{
     }
 
 useEffect(()=>{
-    getjobs();
+     getjobs();
 userAuthentication();
 
 },[])
@@ -83,7 +96,7 @@ userAuthentication();
 
 
 
-    return <AuthContext.Provider value={{user,storeTokenInLs,Logoutuser,isLoggedIn,userAuthentication}}>
+    return <AuthContext.Provider value={{user,storeTokenInLs,Logoutuser,isLoggedIn,isloading,userAuthentication,jobs,hr,authorizationtoken}}>
         {children}
     </AuthContext.Provider>
 

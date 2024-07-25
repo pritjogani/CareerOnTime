@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { useAuth } from "../store/auth";
+import { Navigate } from "react-router-dom";
 
 export const Logout = () =>{
     const {Logoutuser} = useAuth();
@@ -6,5 +8,5 @@ export const Logout = () =>{
         Logoutuser();
     },[Logoutuser])
 
-    return <Navigate to= "/login" />
+    return Navigate("/home")
 }

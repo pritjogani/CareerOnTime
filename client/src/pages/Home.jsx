@@ -1,5 +1,9 @@
+import { Jobs } from "./Jobs"
+
 export const Home = () =>{
 
     
-    return <h1>hello from home</h1>
+    return (
+        <Jobs />
+    )
 }

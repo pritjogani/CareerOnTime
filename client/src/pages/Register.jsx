@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../store/auth"
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const Register = () =>{
         const {storeTokenInLs} = useAuth();
@@ -63,6 +64,7 @@ export const Register = () =>{
             cgpa:"",
 
             })
+            toast.success("registrarion successfull")
             navigate('/')
           }
 

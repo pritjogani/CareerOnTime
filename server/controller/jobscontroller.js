@@ -17,12 +17,7 @@ const addJob = async (req, res) => {
         contactPhone
     } = req.body;
 
-    // if (
-    //     !title || !description || !department || !location || !salary || !jobType ||
-    //     !requirements || !responsibilities || !company || !contactEmail || !contactPhone
-    // ) { 
-    //     return res.status(400).json({ message: 'All fields are required' });
-    // }
+    
 
 
     try { 
@@ -75,7 +70,9 @@ const updatejobinfo = async (req,res) =>{
     const getAlljobtitle = async (req,res) =>{
         try {
             const jobs = await JobPosting.find();
+    
             console.log(jobs)
+         
             
             if(!jobs || jobs.length === 0)
                 return res.status(404).json({message:"no jobs found"})

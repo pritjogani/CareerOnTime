@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { type } = require('os');
 
 const applyforjob = new mongoose.Schema({
     firstname: {
@@ -46,6 +47,10 @@ const applyforjob = new mongoose.Schema({
         type: String,
         required: true
     },
+    username:{
+        type:String,
+        require:true
+    }
    
 });
 

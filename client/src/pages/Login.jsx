@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 
 export const Login = () =>{
    const [user,setUser] = useState({
@@ -47,11 +48,15 @@ const handlesubmit = async (e) =>{
             })
             //for diffrent navigate hrpage and userpage so its dependent in role of 
             //so that feature is remaing added 
-            
+            toast.success("login sucessful");
             navigate('/');
             
 
         } 
+        else{
+            toast.error(res_data.extradetails ? res_data.extradetails : res_data.message)
+ 
+        }
 
     }
     catch(error){

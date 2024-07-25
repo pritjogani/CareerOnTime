@@ -9,7 +9,7 @@ const hrmiddleware = async (req,res,next) =>
                 {
 
                     
-                    return res.status(403).json({message:"Acess denied. User is not an  hr"})
+                    return res.status(403).json({msg:"Acess denied. User is not an  hr"})
     
                 }
                 //if user is an admin procced to the next middleware.
