@@ -1,10 +1,10 @@
 const hrmiddleware = async (req,res,next) =>
     {
         try {
-         // console.log(req.user)
+          console.log(req.user)
             const hrrole = req.user.ishr;
             console.log(hrrole); 
-            //req.status(200).json({msg:req.user.isAdmin})
+           // req.status(200).json({msg:req.user.isAdmin})
             if(!hrrole)
                 {
 

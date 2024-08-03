@@ -16,7 +16,7 @@ export const AuthProvider = ({children})=>{
     const [isloading ,setIsloading] = useState(true); 
     const [jobs,setjobs] = useState([])
     const authorizationtoken = `Bearer ${token}`;
-    const [hr,sethr] = useState();
+    
 
 
     const Logoutuser = () =>{
@@ -26,7 +26,7 @@ export const AuthProvider = ({children})=>{
     }
     let isLoggedIn = !!token;
     
-    console.log(isLoggedIn);
+   // console.log(isLoggedIn);
 
     //any component access to this
     const storeTokenInLs = (serverToken) =>{
@@ -62,14 +62,14 @@ const getjobs = async () =>{
             const responce = await fetch("http://localhost:5000/api/auth/user",{
                 method:"GET",
                 headers:{
-                    Authorization: authorizationtoken,
+                    "Authorization": authorizationtoken,
                 },
             });
             if(responce.ok){
                 const data = await responce.json();
-                console.log(data.userData)
+                // console.log(data.userData)
                 setUser(data.userData)
-                sethr(data.userData);
+               
                 setIsloading(false);
             }
             else{
@@ -96,7 +96,7 @@ userAuthentication();
 
 
 
-    return <AuthContext.Provider value={{user,storeTokenInLs,Logoutuser,isLoggedIn,isloading,userAuthentication,jobs,hr,authorizationtoken}}>
+    return <AuthContext.Provider value={{user,storeTokenInLs,Logoutuser,isLoggedIn,isloading,userAuthentication,jobs,authorizationtoken}}>
         {children}
     </AuthContext.Provider>
 

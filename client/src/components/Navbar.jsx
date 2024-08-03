@@ -7,8 +7,10 @@ const Navbar = () =>{
 const {isLoggedIn} = useAuth();
 
 
-const {hr} = useAuth();
-// const hrr = hr.ishr;
+const {user} = useAuth();
+
+ 
+
     return <>
         <header>
             <div className="container">
@@ -23,7 +25,7 @@ const {hr} = useAuth();
                         <li> <NavLink to="/contact">Contact</NavLink></li>
                         <li> <NavLink to="/service">Service</NavLink></li>
                         {
-                            hr ? (<><li><NavLink to="/hr">hr </NavLink></li></>):(<></>)
+                            user.ishr ? (<><li><NavLink to="/hrhome">hr</NavLink></li></>):(<></>)
                         }
                         { isLoggedIn ? (<li><NavLink to="/logout">logout</NavLink></li>):
                         (  <> <li> <NavLink to="/register">Register</NavLink></li> 

@@ -9,6 +9,7 @@ import { Hrhome } from "./pages/Hrhome"
 import { About } from "./pages/About"
 import { Contact } from "./pages/Contact"
 import { Applyforjobs } from "./pages/Applyforjobs";
+// import { Hrlayout } from "./components/layouts/Hr-layout"
 
 
 
@@ -26,8 +27,15 @@ const App = () =>{
         <Route path= "/jobs" element={<Jobs />} />
         <Route path= "/hrhome" element={<Hrhome />} />
         <Route path= "/contact" element={<Contact />} />
-        <Route path= "/hr" element={<Hrhome />} />
+
         <Route path="/applyforjobs" element={<Applyforjobs />} />
+
+        {/* <Route path="/hr" element={<Hrlayout />}> */}
+        
+        {/* <Route path="contacts" element={<Admincontacts />} />
+        <Route path="/admin/users/:id/edit" element={<Adminupdate />} /> */}
+
+        {/* </Route> */}
       </Routes>
      </BrowserRouter>
 

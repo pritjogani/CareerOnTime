@@ -1,8 +1,9 @@
 // import { NavLink, Outlet, Navigate } from "react-router-dom"
-// import { useAuth } from "../../store/auth"
+// import { useAuth } from "../../store/auth";
 
-// export const AdminLayout = () =>{
-//     const {user, isloading} =useAuth();
+
+// export const Hrlayout = () =>{
+//     const {user, isloading , isLoggedIn} =useAuth();
 //     if(isloading)
 //         {
 //             return <h1>..is loading</h1>
@@ -15,18 +16,27 @@
 
 //         <header>
 //             <div className="container">
-//             <nav>
-//                 <ul>
-//                     <li>
-//                     <NavLink to="/admin/users">users</NavLink>
-//                      </li>
-//                     <li>
-//                     <NavLink to="/admin/contacts">contacts</NavLink>
-//                     </li>
-//                     <li>services</li>
-//                     <li>Home</li>
-//                 </ul>
-//             </nav>
+//             <nav> 
+//                     <nav>
+//                         <li> <NavLink to="/">Home</NavLink></li>
+//                         <li> <NavLink to="/jobs">Jobs</NavLink></li>
+//                         <li> <NavLink to="/about">About</NavLink></li>
+//                         <li> <NavLink to="/contact">Contact</NavLink></li>
+//                         <li> <NavLink to="/service">Service</NavLink></li>
+                        
+//                             <li><NavLink to="/hr">hr </NavLink></li>
+                        
+//                         { isLoggedIn ? (<li><NavLink to="/logout">logout</NavLink></li>):
+//                         (  <> <li> <NavLink to="/register">Register</NavLink></li> 
+//                             <li> <NavLink to="/login">Login</NavLink></li>
+//                             </>)}
+                            
+                            
+
+                            
+                     
+//                     </nav>
+//                 </nav>
 //             </div>
 //         </header>
 //         <Outlet />

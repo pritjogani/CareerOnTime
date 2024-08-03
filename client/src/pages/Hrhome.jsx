@@ -37,8 +37,9 @@ const handlesubmit = async (e) =>{
         const responce = await fetch(`http://localhost:5000/api/hr/addjob`,{
             method:"POST",
             headers:{
-                "Content-Type": "application/json",
-                "Authorization": authorizationtoken
+                
+                Authorization: authorizationtoken,
+                "Content-Type": "application/json"
             },
             body:JSON.stringify(job)
         })

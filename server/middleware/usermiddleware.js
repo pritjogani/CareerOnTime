@@ -17,7 +17,8 @@ const usermiddleware = async (req,res,next) =>{
         });
         req.user = userdata;
         req.token = token;
-        req.userID = userdata._id; 
+        req.userID = userdata._id;
+        
           console.log(userdata);
     }catch(error)
     {
