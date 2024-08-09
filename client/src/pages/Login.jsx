@@ -68,37 +68,39 @@ const handlesubmit = async (e) =>{
 
 }
     return <>
-        <section>
-            <main>
-                <div className="section-register">
-                    <div className="container">
-                        <div className="login-img">
-                            <img src="" alt="" />
-                        </div>
+        <section className="mt-11">
+            <main className="container grid lg:grid-cols-2">
+                
+         
+                            <img src="loginn.png" className="sm:order-2  max-sm:order-2"  alt="" />
+                        
 
                         {/* let takel registration form */}
-                        <div className="login-form">
-                            <h1>Login form</h1>
-                        </div>
+                        <div className=" sm:order-1 md:order-1 order-1">
+                            <h1 className="mb-16 text-center">Login form</h1>
+                       
                         <form action="" onSubmit={handlesubmit}>
 
                             <div>
-                                <label htmlFor="email">email:</label>
-                                <input type="text" name="email" placeholder="enter email" id="email"  required autoComplete="off" value={user.username} onChange={handleinput} />
+                                <label htmlFor="email" className="text-4xl ">Email:</label>
+                                <br />
+                                <input className="pr-24" type="text" name="email" placeholder="enter email" id="email"  required autoComplete="off" value={user.username} onChange={handleinput} />
 
                                 <br />
 
-                                <label htmlFor="password"> password</label>
+                                <label htmlFor="password" className="text-4xl"> Password</label>
+                                <br />
                                 <input type="password" name="password" placeholder="enter password" id="password"  required autoComplete="off" value={user.password} onChange={handleinput}/>
 
                             </div>
                             <br />
 
-                            <button type="submit" className="btn -btn submit">login</button>
+                            <button type="submit" className="btn-btn submit bg-blue-400">login</button>
 
                         </form>
                     </div>
-                </div>
+                
+               
             </main>
         </section>
     </>

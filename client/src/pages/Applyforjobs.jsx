@@ -86,11 +86,11 @@ return <>
  <div className="section-contact container grid grid-two-cols">
 
      <div className="hero-img">
-         <img src="./images/login.png" alt=""  width="70%" height="50"/>
+         <img src="reigisterimg.png" alt="" />
      </div>
      <div className="form-part">
-         <div className=" text-5xl mb-20 text-cyan-50 ">
-             Contact now 
+         <div className=" text-5xl mb-20  ">
+            Application Form
          </div>
          <form action="
          " onSubmit={fun}>

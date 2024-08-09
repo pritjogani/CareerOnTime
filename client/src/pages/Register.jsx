@@ -81,12 +81,12 @@ export const Register = () =>{
                 <div className="section-registration">
                     <div className="container grid grid-two-cols">
                         <div className="registration-image">
-                            <img src="/images/login.png" alt=""  width="400" height="500" />
+                            <img src="fill.png" alt=""  />
                         </div>
 
                         {/* let takel registration form */}
                         <div className="registraion-form">
-                           <h1 className="main-heading mb-3">registraion form</h1>
+                           <h1 className="main-heading mb-3">Registraion form</h1>
                            <br />
                            <form onSubmit={handlesubmit} action="
                            ">
@@ -134,7 +134,7 @@ export const Register = () =>{
                                 <input type="text" name="cgpa"  placeholder="enter cgpa" id="cgpa" required autoComplete="off" value={user.cgpa} onChange={handleinput}/>
                           
                             <br />
-                            <button type="submit" className="btn btn-submit">Register Now</button>
+                            <button type="submit" className="primary-btn">Register Now</button>
                            </form>
                         </div>
 

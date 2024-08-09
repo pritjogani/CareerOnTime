@@ -16,6 +16,7 @@ export const About = () =>{
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis laborum recusandae ea cum similique voluptas fuga facere sed illo maxime! Esse quaerat at quisquam, exercitationem error modi? A, dignissimos officia?
             </p>
           </div>
+          <div><img src="robot.png" alt="" /></div>
         </div>
       </section>
     </main>

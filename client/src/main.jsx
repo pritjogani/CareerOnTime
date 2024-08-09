@@ -5,6 +5,8 @@ import './index.css'
 import { AuthProvider } from './store/auth.jsx'
 import { ToastContainer } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+  import '@fortawesome/fontawesome-free/css/all.css' // Import Font Awesome CSS
+  
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

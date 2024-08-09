@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { useState } from "react";
 
 const Navbar = () =>{
 
@@ -9,35 +10,68 @@ const {isLoggedIn} = useAuth();
 
 const {user} = useAuth();
 
- 
+const [isOpen, setIsOpen] = useState(false);
+
+const toggleMenu = () => {
+  setIsOpen(!isOpen);
+};
 
     return <>
-        <header>
-            <div className="container">
-                <div className="logo-brand">
-                pritjogani
+        <header className="section-navbar">
+       
+            <div className="mx-auto  justify-between items-center flex">
+            <div className="navbar-brand">
+                <div className="border-2 p-2 border-black">
+              <p className="font-bold bg-blue-400 border-2  p-5">Career On Time</p>
+              </div>
                 </div>
-                <nav> 
-                    <nav>
-                        <li> <NavLink to="/">Home</NavLink></li>
-                        <li> <NavLink to="/jobs">Jobs</NavLink></li>
-                        <li> <NavLink to="/about">About</NavLink></li>
-                        <li> <NavLink to="/contact">Contact</NavLink></li>
-                        <li> <NavLink to="/service">Service</NavLink></li>
+                
+                    <nav className="navbar grid   ">
+                    <div className="lg:grid-cols-7 hidden md:flex space-x-12">
+                        <li className="nav-item"> <NavLink to="/">Home</NavLink></li>
+                        <li className="nav-item"> <NavLink to="/jobs">Jobs</NavLink></li>
+                        <li className="nav-item"> <NavLink to="/about">About</NavLink></li>
+                        <li className="nav-item"> <NavLink to="/contact">Contact</NavLink></li>
+                        <li className="nav-item"> <NavLink to="/service">Service</NavLink></li>
                         {
-                            user.ishr ? (<><li><NavLink to="/hrhome">hr</NavLink></li></>):(<></>)
+                            user.ishr ? (<><li className="nav-item"><NavLink to="/hrhome">hr</NavLink></li></>):(<></>)
                         }
-                        { isLoggedIn ? (<li><NavLink to="/logout">logout</NavLink></li>):
+                        { isLoggedIn ? (<li className="nav-item"><NavLink to="/logout">logout</NavLink></li>):
                         (  <> <li> <NavLink to="/register">Register</NavLink></li> 
                             <li> <NavLink to="/login">Login</NavLink></li>
                             </>)}
                             
+                            </div>
+                            <div className="md:hidden">
+          <button onClick={toggleMenu} className="text-white focus:outline-none">
+            <img className="w-10" src="menuimg.png" alt="" />
+          </button>
+        </div>
+                            <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
+                            <li className="nav-item"> <NavLink to="/">Home</NavLink></li>
+                        <li className="nav-item"> <NavLink to="/jobs">Jobs</NavLink></li>
+                        <li className="nav-item"> <NavLink to="/about">About</NavLink></li>
+                        <li className="nav-item"> <NavLink to="/contact">Contact</NavLink></li>
+                        <li className="nav-item"> <NavLink to="/service">Service</NavLink></li>
+                        {
+                            user.ishr ? (<><li className="nav-item"><NavLink to="/hrhome">hr</NavLink></li></>):(<></>)
+                        }
+                        { isLoggedIn ? (<li className="nav-item"><NavLink to="/logout">logout</NavLink></li>):
+                        (  <> <li> <NavLink to="/register">Register</NavLink></li> 
+                            <li> <NavLink to="/login">Login</NavLink></li>
+                            </>)}
                             
+      </div>
 
                             
                      
                     </nav>
-                </nav>
+                    
+        
+                
+         
+                
+                
             </div>
         </header>
     </>
