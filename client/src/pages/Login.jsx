@@ -68,7 +68,7 @@ const handlesubmit = async (e) =>{
 
 }
     return <>
-        <section className="mt-11">
+        <section className="mt-11 ">
             <main className="container grid lg:grid-cols-2">
                 
          
