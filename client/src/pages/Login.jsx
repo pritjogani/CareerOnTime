@@ -68,40 +68,63 @@ const handlesubmit = async (e) =>{
 
 }
     return <>
-        <section className="mt-11 ">
-            <main className="container grid lg:grid-cols-2">
-                
-         
-                            <img src="loginn.png" className="sm:order-2  max-sm:order-2"  alt="" />
-                        
+     <section className="mt-11">
+  <main className="container mx-auto grid lg:grid-cols-2 gap-8">
+    
+    <img src="loginn.png" className="sm:order-2 max-sm:order-2 w-full h-auto" alt="Login Illustration" />
 
-                        {/* let takel registration form */}
-                        <div className=" sm:order-1 md:order-1 order-1">
-                            <h1 className="mb-16 text-center">Login form</h1>
-                       
-                        <form action="" onSubmit={handlesubmit}>
+    {/* Registration form */}
+    <div className="sm:order-1 md:order-1 order-1 flex flex-col items-center">
+      <h1 className="mb-8 text-4xl font-bold text-gray-800 text-center">Login Form</h1>
+      
+      <form onSubmit={handlesubmit} className="w-full max-w-md space-y-6">
+        
+        <div>
+          <label htmlFor="email" className="block text-xl font-semibold text-gray-700 mb-2">
+            Email:
+          </label>
+          <input
+            className="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out"
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            id="email"
+            required
+            autoComplete="off"
+            value={user.username}
+            onChange={handleinput}
+          />
+        </div>
 
-                            <div>
-                                <label htmlFor="email" className="text-4xl ">Email:</label>
-                                <br />
-                                <input className="pr-24" type="text" name="email" placeholder="enter email" id="email"  required autoComplete="off" value={user.username} onChange={handleinput} />
+        <div>
+          <label htmlFor="password" className="block text-xl font-semibold text-gray-700 mb-2">
+            Password:
+          </label>
+          <input
+            className="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out"
+            type="password"
+            name="password"
+            placeholder="Enter password"
+            id="password"
+            required
+            autoComplete="off"
+            value={user.password}
+            onChange={handleinput}
+          />
+        </div>
 
-                                <br />
+        <button
+          type="submit"
+          className="w-full py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-200 ease-in-out"
+        >
+          Login
+        </button>
 
-                                <label htmlFor="password" className="text-4xl"> Password</label>
-                                <br />
-                                <input type="password" name="password" placeholder="enter password" id="password"  required autoComplete="off" value={user.password} onChange={handleinput}/>
+      </form>
+    </div>
+    
+  </main>
+</section>
 
-                            </div>
-                            <br />
-
-                            <button type="submit" className="btn-btn submit bg-blue-400">login</button>
-
-                        </form>
-                    </div>
-                
-               
-            </main>
-        </section>
     </>
 };

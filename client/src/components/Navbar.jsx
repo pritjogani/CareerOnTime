@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../store/auth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () =>{
 
@@ -8,7 +8,22 @@ const Navbar = () =>{
 const {isLoggedIn} = useAuth();
 
 
-const {user} = useAuth();
+const {user ,userAuthentication} = useAuth();
+const [isHR, setIsHR] = useState(false);
+// const {hr} = useAuth();
+
+useEffect(() => {
+
+  const  checkUserPermissions = () => {
+   
+    
+    let hrr = user.ishr;
+     setIsHR(hrr);
+   }
+
+  checkUserPermissions();
+});
+
 
 const [isOpen, setIsOpen] = useState(false);
 
@@ -29,17 +44,27 @@ const toggleMenu = () => {
                     <nav className="navbar grid   ">
                     <div className="lg:grid-cols-7 hidden md:flex space-x-12">
                         <li className="nav-item"> <NavLink to="/">Home</NavLink></li>
-                        <li className="nav-item"> <NavLink to="/jobs">Jobs</NavLink></li>
+                        
                         <li className="nav-item"> <NavLink to="/about">About</NavLink></li>
                         <li className="nav-item"> <NavLink to="/contact">Contact</NavLink></li>
-                        <li className="nav-item"> <NavLink to="/service">Service</NavLink></li>
-                        {
+                        {/* <li className="nav-item"> <NavLink to="/service">Service</NavLink></li> */}
+                        {/* {
                             user.ishr ? (<><li className="nav-item"><NavLink to="/hrhome">hr</NavLink></li></>):(<></>)
-                        }
-                        { isLoggedIn ? (<li className="nav-item"><NavLink to="/logout">logout</NavLink></li>):
+                        } */}
+                        
+                   {    }
+                        { isLoggedIn ? (<> <li className="nav-item"> <NavLink to="/jobs">Jobs</NavLink></li><li className="nav-item"><NavLink to="/logout">logout</NavLink>
+                       </li>{
+                        isHR && (
+    <li className="nav-item">
+      <NavLink to="/hr/hrhome">HR</NavLink>
+    </li>
+  )
+}</>):
                         (  <> <li> <NavLink to="/register">Register</NavLink></li> 
                             <li> <NavLink to="/login">Login</NavLink></li>
                             </>)}
+
                             
                             </div>
                             <div className="md:hidden">

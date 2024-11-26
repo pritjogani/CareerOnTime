@@ -20,7 +20,7 @@ export const Home = () =>{
             At CareerOnTime, we understand that finding the right job isn’t just about timing—it’s about finding the perfect match for your skills and aspirations. Let us guide you to opportunities that align with your career goals and come at just the right moment for your professional growth.
             </p>
             <div className="hero-btn">
-             <button className=""> <NavLink to="/jobs">Apply Jobs </NavLink></button>
+             {/* <button className=""> <NavLink to="">Apply Jobs </NavLink></button> */}
             </div>
           </div>
           <div className="section-hero-img">
@@ -89,10 +89,10 @@ export const Home = () =>{
     <div className="mb-56"></div>
     
 
-<footer class="bg-gray-800 text-white py-4">
-  <div class="container mx-auto flex justify-between items-center">
-    <p>&copy; 2024 CareerOnTime</p>
-    <ul class="flex space-x-4">
+<footer className="bg-white-800 text-white py-4">
+  <div className="container mx-auto flex justify-between items-center">
+    <p >&copy; 2024 CareerOnTime</p>
+    <ul className="flex space-x-4">
                            <li className="nav-item"> <NavLink to="/">Home</NavLink></li>
                         <li className="nav-item"> <NavLink to="/jobs">Jobs</NavLink></li>
                         <li className="nav-item"> <NavLink to="/about">About</NavLink></li>
