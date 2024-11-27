@@ -68,40 +68,78 @@ const handlesubmit = async (e) =>{
 
 }
     return <>
-        <section className="mt-11 ">
-            <main className="container grid lg:grid-cols-2">
-                
-         
-                            <img src="loginn.png" className="sm:order-2  max-sm:order-2"  alt="" />
-                        
+     <section className="flex items-center justify-center min-h-screen bg-gray">
+  <main className="w-full max-w-8xl mx-auto px-6 py-12">
+    <div className="grid lg:grid-cols-2 items-center gap-8 bg-white shadow-lg rounded-lg overflow-hidden">
+      
+      {/* Image Section */}
+      <div className="hidden lg:block">
+        <img src="loginn.png" alt="Login Illustration" className="w-full max-w-4xl object-cover" />
+      </div>
 
-                        {/* let takel registration form */}
-                        <div className=" sm:order-1 md:order-1 order-1">
-                            <h1 className="mb-16 text-center">Login form</h1>
-                       
-                        <form action="" onSubmit={handlesubmit}>
+      {/* Form Section */}
+      <div className="p-8 md:p-12 lg:p-16">
+        <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">Login to Your Account</h1>
 
-                            <div>
-                                <label htmlFor="email" className="text-4xl ">Email:</label>
-                                <br />
-                                <input className="pr-24" type="text" name="email" placeholder="enter email" id="email"  required autoComplete="off" value={user.username} onChange={handleinput} />
+        <form action="" onSubmit={handlesubmit} className="space-y-6">
+          
+          {/* Email Input */}
+          <div>
+            <label htmlFor="email" className="block text-lg font-medium text-gray-700">Email Address:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email address"
+              required
+              autoComplete="off"
+              value={user.username}
+              onChange={handleinput}
+              className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            />
+          </div>
 
-                                <br />
+          {/* Password Input */}
+          <div>
+            <label htmlFor="password" className="block text-lg font-medium text-gray-700">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              required
+              autoComplete="off"
+              value={user.password}
+              onChange={handleinput}
+              className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            />
+          </div>
 
-                                <label htmlFor="password" className="text-4xl"> Password</label>
-                                <br />
-                                <input type="password" name="password" placeholder="enter password" id="password"  required autoComplete="off" value={user.password} onChange={handleinput}/>
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full py-3 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-300 ease-in-out"
+          >
+            Login
+          </button>
+        </form>
 
-                            </div>
-                            <br />
+        {/* Additional Links */}
+        <div className="mt-6 text-center">
+          <p className="text-gray-600">
+            Don't have an account?{' '}
+            <a href="/register" className="text-blue-500 hover:underline">
+              Sign up
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
 
-                            <button type="submit" className="btn-btn submit bg-blue-400">login</button>
 
-                        </form>
-                    </div>
-                
-               
-            </main>
-        </section>
+
+
     </>
 };

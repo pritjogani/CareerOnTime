@@ -1,148 +1,259 @@
 import { useState } from "react";
-import { useAuth } from "../store/auth"
+import { useAuth } from "../store/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export const Register = () =>{
-        const {storeTokenInLs} = useAuth();
-        const [user,setUser]  = useState({
-            username:"",
-            password:"",
-            email:"",
-            role:"",
-            phone:"",
-            city:"",
-            collage:"",
-            age:"",
-            companyname:"",
-            cgpa:"",
+export const Register = () => {
+    const { storeTokenInLs } = useAuth();
+    const [user, setUser] = useState({
+        username: "",
+        password: "",
+        email: "",
+        role: "",
+        phone: "",
+        city: "",
+        college: "",
+        age: "",
+        companyname: "",
+        cgpa: "",
+    });
 
+    const navigate = useNavigate();
 
+    // Handling input value
+    const handleinput = (e) => {
+        const { name, value } = e.target;
+        setUser({
+            ...user,
+            [name]: value,
+        });
+    };
 
-        })
-        const navigate= useNavigate();
+    // Handling form submission
+    const handlesubmit = async (e) => {
+        e.preventDefault();
+        console.log(user);
 
-        //handlingn the input value
-        const handleinput = (e) =>{
-            console.log(e)
-            let name = e.target.name;
-            let value = e.target.value;
-
-            setUser({
-                ...user,
-                [name]:value
-            })
-        }
-
-        //handling form for submission
-        const handlesubmit = async (e) => {
-            e.preventDefault();
-            console.log(user)
-        
         try {
-            const responce = await fetch(`http://localhost:5000/api/auth/register`,{
-                method:"post",
-                headers:{
-                    "Content-Type":"application/json"
+            const response = await fetch(`http://localhost:5000/api/auth/register`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
                 },
-                body:JSON.stringify(user)
-            })
-            const res_data = await responce.json();
-          if(responce.ok)
-          {
-            storeTokenInLs(res_data.token)
-            setUser({
-                username:"",
-            password:"",
-            email:"",
-            role:"",
-            phone:"",
-            city:"",
-            collage:"",
-            age:"",
-            companyname:"",
-            cgpa:"",
+                body: JSON.stringify(user),
+            });
 
-            })
-            toast.success("registrarion successfull")
-            navigate('/')
-          }
-
-
+            const res_data = await response.json();
+            if (response.ok) {
+                storeTokenInLs(res_data.token);
+                setUser({
+                    username: "",
+                    password: "",
+                    email: "",
+                    role: "",
+                    phone: "",
+                    city: "",
+                    college: "",
+                    age: "",
+                    companyname: "",
+                    cgpa: "",
+                });
+                toast.success("Registration successful");
+                navigate("/");
+            }
+        } catch (error) {
+            console.log("Something went wrong", error);
+            toast.error("Registration failed. Please try again.");
         }
-        catch(error)
-        {
-            console.log("something went wrong")
-        }
-    }
-    return<>
-         <section>
-            <main>
-                <div className="section-registration">
-                    <div className="container grid grid-two-cols">
-                        <div className="registration-image">
-                            <img src="fill.png" alt=""  />
+    };
+
+    return (
+        <>
+            <section className="min-h-screen flex items-center justify-center min-h-screen bg-gray">
+                <main className="w-full max-w-8xl mx-auto px-6 py-12">
+                    <div className="bg-white p-8 md:p-12 rounded-lg shadow-lg grid grid-cols-1 lg:grid-cols-2 gap-12 w-full">
+                        {/* Image Section */}
+                        <div className="registration-image flex justify-center items-center">
+                            <img src="fill.png" alt="Registration Illustration" className="w-full max-w-4xl object-cover" />
                         </div>
 
-                        {/* let takel registration form */}
-                        <div className="registraion-form">
-                           <h1 className="main-heading mb-3">Registraion form</h1>
-                           <br />
-                           <form onSubmit={handlesubmit} action="
-                           ">
-                            <div>
-                                <label htmlFor="username">username</label>
-                                <br />
-                                <input type="text" name="username"  placeholder="username" id="username" required autoComplete="off" value={user.username} onChange={handleinput}/>
-<br />
-                                <label htmlFor="email">email</label>
-                                <br />
-                                <input type="email" name="email"  placeholder="enter your email" id="email" required autoComplete="off" value={user.email} onChange={handleinput} />
-<br />
-                                <label htmlFor="phone">phone</label>
-                                <br />
-                                <input type="number" name="phone"  placeholder="enter phone no" id="phone" required autoComplete="off" value={user.phone} onChange={handleinput} />
-<br />
-                                <label htmlFor="password">password</label>
-                                <br />
-                                <input type="password" name="password"  placeholder="enter password" id="password" required autoComplete="off" value={user.password} onChange={handleinput}/>
-                            </div>
-                            <br />
-                            <label htmlFor="role">role</label>
-                                <br />
-                                <input type="text" name="role"  placeholder="if you register as ht then write HR" id="role" required autoComplete="off" value={user.role} onChange={handleinput}/>
-<br />
-                                <label htmlFor="city">city</label>
-                                <br />
-                                <input type="text" name="city"  placeholder="enter your city" id="city" required autoComplete="off" value={user.city} onChange={handleinput} />
-<br />
-                                <label htmlFor="collage">collage</label>
-                                <br />
-                                <input type="text" name="collage"  placeholder="enter phone collage" id="collage" required autoComplete="off" value={user.collage} onChange={handleinput} />
-<br />
-                                <label htmlFor="age">age</label>
-                                <br />
-                                <input type="number" name="age"  placeholder="enter age" id="age" required autoComplete="off" value={user.age} onChange={handleinput}/>
-                          
-                            <br />
-                            <label htmlFor="comapnyname">company name</label>
-                                <br />
-                                <input type="text" name="companyname"  placeholder="enter phone compnay name" id="companyname" required autoComplete="off" value={user.companyname} onChange={handleinput} />
-<br />
-                                <label htmlFor="cgpa">cgpa</label>
-                                <br />
-                                <input type="text" name="cgpa"  placeholder="enter cgpa" id="cgpa" required autoComplete="off" value={user.cgpa} onChange={handleinput}/>
-                          
-                            <br />
-                            <button type="submit" className="primary-btn">Register Now</button>
-                           </form>
-                        </div>
+                        {/* Form Section */}
+                        <div className="registration-form w-full">
+                            <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Registration Form</h1>
 
+                            <form onSubmit={handlesubmit} className="space-y-6 w-full">
+                                {/* Username */}
+                                <div>
+                                    <label htmlFor="username" className="block text-lg font-medium text-gray-700">Username</label>
+                                    <input
+                                        type="text"
+                                        name="username"
+                                        id="username"
+                                        placeholder="Enter your username"
+                                        required
+                                        autoComplete="off"
+                                        value={user.username}
+                                        onChange={handleinput}
+                                        className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
+
+                                {/* Email */}
+                                <div>
+                                    <label htmlFor="email" className="block text-lg font-medium text-gray-700">Email</label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        placeholder="Enter your email"
+                                        required
+                                        autoComplete="off"
+                                        value={user.email}
+                                        onChange={handleinput}
+                                        className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
+
+                                {/* Phone */}
+                                <div>
+                                    <label htmlFor="phone" className="block text-lg font-medium text-gray-700">Phone</label>
+                                    <input
+                                        type="number"
+                                        name="phone"
+                                        id="phone"
+                                        placeholder="Enter phone number"
+                                        required
+                                        autoComplete="off"
+                                        value={user.phone}
+                                        onChange={handleinput}
+                                        className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
+
+                                {/* Password */}
+                                <div>
+                                    <label htmlFor="password" className="block text-lg font-medium text-gray-700">Password</label>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        id="password"
+                                        placeholder="Enter password"
+                                        required
+                                        autoComplete="off"
+                                        value={user.password}
+                                        onChange={handleinput}
+                                        className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
+
+                                {/* Role */}
+                                <div>
+                                    <label htmlFor="role" className="block text-lg font-medium text-gray-700">Role</label>
+                                    <input
+                                        type="text"
+                                        name="role"
+                                        id="role"
+                                        placeholder="Enter your role (e.g., HR)"
+                                        required
+                                        autoComplete="off"
+                                        value={user.role}
+                                        onChange={handleinput}
+                                        className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
+
+                                {/* City */}
+                                <div>
+                                    <label htmlFor="city" className="block text-lg font-medium text-gray-700">City</label>
+                                    <input
+                                        type="text"
+                                        name="city"
+                                        id="city"
+                                        placeholder="Enter your city"
+                                        required
+                                        autoComplete="off"
+                                        value={user.city}
+                                        onChange={handleinput}
+                                        className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
+
+                                {/* College */}
+                                <div>
+                                    <label htmlFor="college" className="block text-lg font-medium text-gray-700">College</label>
+                                    <input
+                                        type="text"
+                                        name="college"
+                                        id="college"
+                                        placeholder="Enter your college"
+                                        required
+                                        autoComplete="off"
+                                        value={user.college}
+                                        onChange={handleinput}
+                                        className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
+
+                                {/* Age */}
+                                <div>
+                                    <label htmlFor="age" className="block text-lg font-medium text-gray-700">Age</label>
+                                    <input
+                                        type="number"
+                                        name="age"
+                                        id="age"
+                                        placeholder="Enter your age"
+                                        required
+                                        autoComplete="off"
+                                        value={user.age}
+                                        onChange={handleinput}
+                                        className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
+
+                                {/* Company Name */}
+                                <div>
+                                    <label htmlFor="companyname" className="block text-lg font-medium text-gray-700">Company Name</label>
+                                    <input
+                                        type="text"
+                                        name="companyname"
+                                        id="companyname"
+                                        placeholder="Enter your company name"
+                                        required
+                                        autoComplete="off"
+                                        value={user.companyname}
+                                        onChange={handleinput}
+                                        className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
+
+                                {/* CGPA */}
+                                <div>
+                                    <label htmlFor="cgpa" className="block text-lg font-medium text-gray-700">CGPA</label>
+                                    <input
+                                        type="text"
+                                        name="cgpa"
+                                        id="cgpa"
+                                        placeholder="Enter your CGPA"
+                                        required
+                                        autoComplete="off"
+                                        value={user.cgpa}
+                                        onChange={handleinput}
+                                        className="w-full mt-1 px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
+
+                                {/* Submit Button */}
+                                <button
+                                    type="submit"
+                                    className="w-full py-3 bg-blue-600 text-white font-semibold rounded-md shadow-lg hover:bg-blue-700 transition duration-300"
+                                >
+                                    Register Now
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </main>
-        </section>
-    </>
-        
-}
-
+                </main>
+            </section>
+        </>
+    );
+};

@@ -4,7 +4,7 @@ import { useAuth } from "../store/auth";
 
 export const Home = () =>{
 
-  const {user} = useAuth();
+  const {user} = useAuth(); 
     return (
         <>
         <div>
@@ -12,7 +12,7 @@ export const Home = () =>{
       <div className="section-hero">
         <div className="container grid lg:grid-cols-2 sm:grid-cols-1 ">
           <div className="section-hero--content">
-          <p className="text-5xl text-slate-700 mb-3">welcome {user ?`${user.username}  `: `to our website`}</p>
+          <p className="text-5xl text-slate-700 mb-3">Welcome {user ?`${user.username}  `: `to our website`}</p>
           <h1></h1>
             <p className="hero-subheading">Elevate your career from dreams to reality</p>
             <h1 className="hero-heading">Find your dream job at just the right moment with CareerOnTime.</h1>
@@ -89,7 +89,7 @@ export const Home = () =>{
     <div className="mb-56"></div>
     
 
-<footer class="bg-gray-800 text-white py-4">
+<footer class="bg-gray-800 text-red py-4">
   <div class="container mx-auto flex justify-between items-center">
     <p>&copy; 2024 CareerOnTime</p>
     <ul class="flex space-x-4">
