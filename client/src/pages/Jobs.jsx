@@ -11,9 +11,10 @@ export const Jobs = () =>{
         </div>
         <div className="container grid grid-cols-1">
         {
-            jobs.map((curElem,index) => {
-const {title,description,department,location,salary,jobType,Dateofjoin,requirements,responsibilities,company,conatactEmail,contactphone,status} = curElem;
-return(<>
+            jobs.map((curElem,index) => {   
+const {title,description,department,location,salary,jobType,Dateofjoin,requirements,responsibilities,company,conatactEmail,contactphone,status,id} = curElem;
+return(<> 
+<li key={id}>
     <div className="bg-white shadow-lg rounded-lg  border border-gray-200 hover:shadow-xl transition-shadow duration-300 grid lg:grid-cols-2 transition-transform duration-300 ease-in-out hover:scale-105" key={index}>
       <div className="grid grid-cols-2">
       <div>
@@ -40,7 +41,8 @@ return(<>
       </div>
       </div>
     </div>
-          </>
+    </li>
+      </>
  
 
             )   })}

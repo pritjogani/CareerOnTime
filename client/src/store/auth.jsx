@@ -13,18 +13,27 @@ export const AuthProvider = ({children})=>{
 
     const [token,setToken] = useState(localStorage.getItem("token"))
     const [user,setUser] = useState("");
+    let [hr,sethr] = useState(false);
     const [isloading ,setIsloading] = useState(true); 
     const [jobs,setjobs] = useState([])
     const authorizationtoken = `Bearer ${token}`;
-    
+     
+    // const hrinfo = () =>{
+    //     if(user.ishr)
+    //     {
+    //         sethr(true);
+    //     }
+    // }
 
 
     const Logoutuser = () =>{
         setToken("");
-        return localStorage.removeItem("token");
-
+        setUser("")
+        return localStorage.removeItem("token")
+        
+    
     }
-    let isLoggedIn = !!token;
+    let isLoggedIn = !!token; 
     
    // console.log(isLoggedIn);
 
@@ -32,8 +41,20 @@ export const AuthProvider = ({children})=>{
     const storeTokenInLs = (serverToken) =>{
         setToken(serverToken);
         return localStorage.setItem("token" , serverToken);
-    }
-
+    } 
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //       try {
+    //         const response = await axios.get('http://localhost:5000/api/data');
+    //         setData(response.data);
+    //       } catch (error) {
+    //         console.error('Error fetching data:', error);
+    //       }
+    //     };
+    
+    //     fetchData();
+    //   }, []); // Empty dependency array ensures it runs only on the first load
+    
     //add job opening in home portal
 const getjobs = async () =>{
     try {
@@ -41,11 +62,12 @@ const getjobs = async () =>{
             {
                 method:"GET",
                 
+                
             })
             if(responce.ok)
             {
                 const data = await responce.json();
-                console.log(data);
+                // console.log(data);
                 setjobs(data)
             }
     } catch (error) {
@@ -67,8 +89,10 @@ const getjobs = async () =>{
             });
             if(responce.ok){
                 const data = await responce.json();
-                // console.log(data.userData)
+                  //console.log(data.userData.ishr)
+                  
                 setUser(data.userData)
+                
                
                 setIsloading(false);
             }
@@ -85,6 +109,8 @@ const getjobs = async () =>{
 useEffect(()=>{
      getjobs();
 userAuthentication();
+// hrinfo();
+
 
 },[])
 
@@ -96,7 +122,7 @@ userAuthentication();
 
 
 
-    return <AuthContext.Provider value={{user,storeTokenInLs,Logoutuser,isLoggedIn,isloading,userAuthentication,jobs,authorizationtoken}}>
+    return <AuthContext.Provider value={{ hr,user,storeTokenInLs,Logoutuser,isLoggedIn,isloading,userAuthentication,jobs,authorizationtoken}}>
         {children}
     </AuthContext.Provider>
 

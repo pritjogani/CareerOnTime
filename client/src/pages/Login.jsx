@@ -68,6 +68,7 @@ const handlesubmit = async (e) =>{
 
 }
     return <>
+
      <section className="flex items-center justify-center min-h-screen bg-gray">
   <main className="w-full max-w-8xl mx-auto px-6 py-12">
     <div className="grid lg:grid-cols-2 items-center gap-8 bg-white shadow-lg rounded-lg overflow-hidden">
@@ -137,6 +138,7 @@ const handlesubmit = async (e) =>{
     </div>
   </main>
 </section>
+
 
 
 
