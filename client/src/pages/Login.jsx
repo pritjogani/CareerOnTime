@@ -68,63 +68,80 @@ const handlesubmit = async (e) =>{
 
 }
     return <>
-     <section className="mt-11">
-  <main className="container mx-auto grid lg:grid-cols-2 gap-8">
-    
-    <img src="loginn.png" className="sm:order-2 max-sm:order-2 w-full h-auto" alt="Login Illustration" />
 
-    {/* Registration form */}
-    <div className="sm:order-1 md:order-1 order-1 flex flex-col items-center">
-      <h1 className="mb-8 text-4xl font-bold text-gray-800 text-center">Login Form</h1>
+     <section className="flex items-center justify-center min-h-screen bg-gray">
+  <main className="w-full max-w-8xl mx-auto px-6 py-12">
+    <div className="grid lg:grid-cols-2 items-center gap-8 bg-white shadow-lg rounded-lg overflow-hidden">
       
-      <form onSubmit={handlesubmit} className="w-full max-w-md space-y-6">
-        
-        <div>
-          <label htmlFor="email" className="block text-xl font-semibold text-gray-700 mb-2">
-            Email:
-          </label>
-          <input
-            className="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out"
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            id="email"
-            required
-            autoComplete="off"
-            value={user.username}
-            onChange={handleinput}
-          />
+      {/* Image Section */}
+      <div className="hidden lg:block">
+        <img src="loginn.png" alt="Login Illustration" className="w-full max-w-4xl object-cover" />
+      </div>
+
+      {/* Form Section */}
+      <div className="p-8 md:p-12 lg:p-16">
+        <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">Login to Your Account</h1>
+
+        <form action="" onSubmit={handlesubmit} className="space-y-6">
+          
+          {/* Email Input */}
+          <div>
+            <label htmlFor="email" className="block text-lg font-medium text-gray-700">Email Address:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email address"
+              required
+              autoComplete="off"
+              value={user.username}
+              onChange={handleinput}
+              className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            />
+          </div>
+
+          {/* Password Input */}
+          <div>
+            <label htmlFor="password" className="block text-lg font-medium text-gray-700">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              required
+              autoComplete="off"
+              value={user.password}
+              onChange={handleinput}
+              className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            />
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full py-3 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-300 ease-in-out"
+          >
+            Login
+          </button>
+        </form>
+
+        {/* Additional Links */}
+        <div className="mt-6 text-center">
+          <p className="text-gray-600">
+            Don't have an account?{' '}
+            <a href="/register" className="text-blue-500 hover:underline">
+              Sign up
+            </a>
+          </p>
         </div>
-
-        <div>
-          <label htmlFor="password" className="block text-xl font-semibold text-gray-700 mb-2">
-            Password:
-          </label>
-          <input
-            className="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out"
-            type="password"
-            name="password"
-            placeholder="Enter password"
-            id="password"
-            required
-            autoComplete="off"
-            value={user.password}
-            onChange={handleinput}
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="w-full py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-200 ease-in-out"
-        >
-          Login
-        </button>
-
-      </form>
+      </div>
     </div>
-    
   </main>
 </section>
+
+
+
+
 
     </>
 };
