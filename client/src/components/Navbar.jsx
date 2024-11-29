@@ -32,7 +32,7 @@ const toggleMenu = () => {
 };
 
     return <>
-        <header className="section-navbar">
+        <header className="section-navbar ">
        
             <div className="mx-auto  justify-between items-center flex">
             <div className="navbar-brand">

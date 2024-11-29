@@ -83,63 +83,228 @@ export const Applyforjobs = () =>{
    
 return <>
 <div>
- <div className="section-contact container grid grid-two-cols">
+<div className="  mx-auto p-8 grid grid-cols-1 lg:grid-cols-2 gap-12 bg-gray-50 ">
+  <div className="hero-img flex justify-center items-center order-2 lg:order-1">
+    <img src="reigisterimg.png" alt="Register" className="" />
+  </div>
 
-     <div className="hero-img">
-         <img src="reigisterimg.png" alt="" />
-     </div>
-     <div className="form-part">
-         <div className=" text-5xl mb-20  ">
-            Application Form
-         </div>
-         <form action="
-         " onSubmit={fun}>
-             <label htmlFor="username" className="text-4xl mb-6 mr-5" >username:</label>
-             <input type="text" className="mb-7" name="username" placeholder="enter username" required id="username" value={appyjob.username} onChange={handlereq}/>
-             <br />
+  <div className="form-part order-1 lg:order-2">
+    <div className="text-6xl font-bold mb-8 text-center  text-gray-800">
+      Application Form
+    </div>
 
-             <label htmlFor="email" className="text-4xl mb-6 mr-24">email:</label>
-             <input type="email" className="mb-7" name="email" placeholder="enter email" required id="email" value={appyjob.email} onChange={handlereq}  />
-             <br />
+    <form action="" onSubmit={fun} className="space-y-6">
+    
+      <div className="flex flex-col">
+        <label htmlFor="username" className="text-lg font-medium text-gray-700">
+          Username
+        </label>
+        <input
+          type="text"
+          className="mt-2 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          name="username"
+          placeholder="Enter username"
+          required
+          id="username"
+          value={appyjob.username}
+          onChange={handlereq}
+        />
+      </div>
 
-             <label htmlFor="firstname" className="text-4xl mb-6 mr-5" >first name:</label>
-             <input type="text" className="mb-7" name="firstname" placeholder="enter first name" required id="firstname" value={appyjob.firstname} onChange={handlereq}/>
-             <br />
-             <label htmlFor="lastname" className="text-4xl mb-6 mr-5" >lastname:</label>
-             <input type="text" className="mb-7" name="lastname" placeholder="enter lastname" required id="lastname" value={appyjob.lastname} onChange={handlereq}/>
-             <br />
-             <label htmlFor="education" className="text-4xl mb-6 mr-5" >education:</label>
-             <input type="text" className="mb-7" name="education" placeholder="enter education" required id="education" value={appyjob.education} onChange={handlereq}/>
-             <br />
-             <label htmlFor="skills" className="text-4xl mb-6 mr-5" >skills:</label>
-             <input type="text" className="mb-7" name="skills" placeholder="enter skills" required id="skills" value={appyjob.skills} onChange={handlereq}/>
-             <br />
-             <label htmlFor="achievement" className="text-4xl mb-6 mr-5" >achievement:</label>
-             <input type="text" className="mb-7" name="achievement" placeholder="enter achievement" required id="achievement" value={appyjob.achievement} onChange={handlereq}/>
-             <br />
-             <label htmlFor="expextedsalary" className="text-4xl mb-6 mr-5" >expextedsalary:</label>
-             <input type="text" className="mb-7" name="expextedsalary" placeholder="enter expextedsalary" required id="expextedsalary" value={appyjob.expextedsalary} onChange={handlereq}/>
-             <br />
-             <label htmlFor="privioussalary" className="text-4xl mb-6 mr-5" >privioussalary:</label>
-             <input type="text" className="mb-7" name="privioussalary" placeholder="enter privioussalary" required id="privioussalary" value={appyjob.privioussalary} onChange={handlereq}/>
-             <br />
-             <label htmlFor="refrences" className="text-4xl mb-6 mr-5" >refrences:</label>
-             <input type="text" className="mb-7" name="refrences" placeholder="enter refrences" required id="refrences" value={appyjob.refrences} onChange={handlereq}/>
-             <br />
-             <label htmlFor="expirence" className="text-4xl mb-6 mr-5" >expirence:</label>
-             <input type="text" className="mb-7" name="expirence" placeholder="enter expirence" required id="expirence" value={appyjob.expirence} onChange={handlereq}/>
-             <br />
-             <label htmlFor="collagename" className="text-4xl mb-6 mr-5" >collagename:</label>
-             <input type="text" className="mb-7" name="collagename" placeholder="enter collagename" required id="collagename" value={appyjob.collagename} onChange={handlereq}/>
-             <br />
-         
-             <button type="submit" className="btn mt-20">
-                    submit
-             </button>
+  
+      <div className="flex flex-col">
+        <label htmlFor="email" className="text-lg font-medium text-gray-700">
+          Email
+        </label>
+        <input
+          type="email"
+          className="mt-2 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          name="email"
+          placeholder="Enter email"
+          required
+          id="email"
+          value={appyjob.email}
+          onChange={handlereq}
+        />
+      </div>
 
-         </form>
-     </div>
- </div>
+     
+      <div className="flex flex-col">
+        <label htmlFor="firstname" className="text-lg font-medium text-gray-700">
+          First Name
+        </label>
+        <input
+          type="text"
+          className="mt-2 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          name="firstname"
+          placeholder="Enter first name"
+          required
+          id="firstname"
+          value={appyjob.firstname}
+          onChange={handlereq}
+        />
+      </div>
+
+ 
+      <div className="flex flex-col">
+        <label htmlFor="lastname" className="text-lg font-medium text-gray-700">
+          Last Name
+        </label>
+        <input
+          type="text"
+          className="mt-2 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          name="lastname"
+          placeholder="Enter last name"
+          required
+          id="lastname"
+          value={appyjob.lastname}
+          onChange={handlereq}
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <label htmlFor="education" className="text-lg font-medium text-gray-700">
+          Education
+        </label>
+        <input
+          type="text"
+          className="mt-2 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          name="education"
+          placeholder="Enter education"
+          required
+          id="education"
+          value={appyjob.education}
+          onChange={handlereq}
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <label htmlFor="skills" className="text-lg font-medium text-gray-700">
+          Skills
+        </label>
+        <input
+          type="text"
+          className="mt-2 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          name="skills"
+          placeholder="Enter skills"
+          required
+          id="skills"
+          value={appyjob.skills}
+          onChange={handlereq}
+        />
+      </div>
+
+
+      <div className="flex flex-col">
+        <label htmlFor="achievement" className="text-lg font-medium text-gray-700">
+          Achievements
+        </label>
+        <input
+          type="text"
+          className="mt-2 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          name="achievement"
+          placeholder="Enter achievements"
+          required
+          id="achievement"
+          value={appyjob.achievement}
+          onChange={handlereq}
+        />
+      </div>
+
+
+      <div className="flex flex-col">
+        <label htmlFor="expectedsalary" className="text-lg font-medium text-gray-700">
+          Expected Salary
+        </label>
+        <input
+          type="text"
+          className="mt-2 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          name="expectedsalary"
+          placeholder="Enter expected salary"
+          required
+          id="expectedsalary"
+          value={appyjob.expectedsalary}
+          onChange={handlereq}
+        />
+      </div>
+
+  
+      <div className="flex flex-col">
+        <label htmlFor="previoussalary" className="text-lg font-medium text-gray-700">
+          Previous Salary
+        </label>
+        <input
+          type="text"
+          className="mt-2 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          name="previoussalary"
+          placeholder="Enter previous salary"
+          required
+          id="previoussalary"
+          value={appyjob.previoussalary}
+          onChange={handlereq}
+        />
+      </div>
+
+
+      <div className="flex flex-col">
+        <label htmlFor="references" className="text-lg font-medium text-gray-700">
+          References
+        </label>
+        <input
+          type="text"
+          className="mt-2 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          name="references"
+          placeholder="Enter references"
+          required
+          id="references"
+          value={appyjob.references}
+          onChange={handlereq}
+        />
+      </div>
+
+    
+      <div className="flex flex-col">
+        <label htmlFor="experience" className="text-lg font-medium text-gray-700">
+          Experience
+        </label>
+        <input
+          type="text"
+          className="mt-2 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          name="experience"
+          placeholder="Enter experience"
+          required
+          id="experience"
+          value={appyjob.experience}
+          onChange={handlereq}
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <label htmlFor="collegename" className="text-lg font-medium text-gray-700">
+          College Name
+        </label>
+        <input
+          type="text"
+          className="mt-2 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          name="collegename"
+          placeholder="Enter college name"
+          required
+          id="collegename"
+          value={appyjob.collegename}
+          onChange={handlereq}
+        />
+      </div>
+
+      <button
+        type="submit"
+        className="w-full py-3 mt-6 bg-blue-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition duration-300"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+
  </div>
  </>
 }

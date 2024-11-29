@@ -87,15 +87,67 @@ export const Home = () =>{
       </div>
     </div>
     <div className="mb-56"></div>
-    
+    <footer className="bg-gray-900 text-white py-12">
+    <div className="container mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+           
+            <div>
+                <h3 className="text-2xl font-bold mb-4">Quick Links</h3>
+                <ul className="space-y-4">
+                    <li>
+                        <NavLink to="/" className="text-lg hover:text-blue-400 transition-colors text-white">Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/jobs" className="text-lg hover:text-blue-400 transition-colors text-white">Jobs</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/about" className="text-lg hover:text-blue-400 transition-colors text-white">About</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/contact" className="text-lg hover:text-blue-400 transition-colors text-white">Contact</NavLink>
+                    </li>
+                </ul>
+            </div>
 
-                           <li className="nav-item"> <NavLink to="/">Home</NavLink></li>
-                        <li className="nav-item"> <NavLink to="/jobs">Jobs</NavLink></li>
-                        <li className="nav-item"> <NavLink to="/about">About</NavLink></li>
-                        <li className="nav-item"> <NavLink to="/contact">Contact</NavLink></li>
-    </ul>
-  </div>
+           
+            <div>
+                <h3 className="text-2xl font-bold mb-4">About Us</h3>
+                <p className="text-lg text-gray-400">We provide the best job opportunities and connect job seekers with the right companies. Join us today and explore amazing career paths!</p>
+            </div>
+
+            <div>
+                <h3 className="text-2xl font-bold mb-4">Contact</h3>
+    
+                <p className="text-lg text-gray-400">Email: joganiprit2004@gmail.com</p>
+                <p className="text-lg text-gray-400">Phone: 8160882490</p>
+            </div>
+
+            <div>
+                <h3 className="text-2xl font-bold mb-4">Follow Us</h3>
+                <div className="flex space-x-6">
+                    <a href="#" className="text-3xl text-gray-400 hover:text-blue-400 transition-colors">
+                        <i className="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" className="text-3xl text-gray-400 hover:text-blue-400 transition-colors">
+                        <i className="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" className="text-3xl text-gray-400 hover:text-blue-400 transition-colors">
+                        <i className="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" className="text-3xl text-gray-400 hover:text-blue-400 transition-colors">
+                        <i className="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+     
+        <div className="mt-12 border-t border-gray-700 pt-8 text-center">
+            <p className="text-lg text-gray-400">&copy; 2024 JobPortal. All Rights Reserved.</p>
+        </div>
+    </div>
 </footer>
+
 
     
     </>

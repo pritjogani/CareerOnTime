@@ -74,75 +74,207 @@ contactPhone:""
     
 
 return <>
-<section>
-    <main>
-        <div className="section-registration">
-            <div className="container grid grid-two-cols">
-                <div className="registration-image">
-                    <img src="/images/login.png" alt=""  width="400" height="500" />
-                </div>
+<section className="bg-gray-50  flex items-center justify-center py-12">
+  <main className="w-full max-w-14xl mx-auto px-6 lg:px-12">
+    <div className="section-registration bg-white p-8 md:p-12 rounded-lg shadow-lg">
+      <h1 className="main-heading text-3xl font-extrabold text-gray-800 mb-8 text-center">
+        Add Job Form
+      </h1>
 
-                {/* let takel registration form */}
-                <div className="registraion-form">
-                   <h1 className="main-heading mb-3">add job form</h1>
-                   <br />
-                   <form onSubmit={handlesubmit} action="
-                   ">
-                    <div>
-                    <label htmlFor="title">title</label>
-                        <br />
-                        <input type="text" name="title"  placeholder="title" id="title" required autoComplete="off" value={job.title} onChange={handleinput}/>
-<br />
-<label htmlFor="description">description</label>
-                        <br />
-                        <input type="text" name="description"  placeholder="description" id="description" required autoComplete="off" value={job.description} onChange={handleinput}/>
-<br />
-                        <label htmlFor="department">department</label>
-                        <br />
-                        <input type="text" name="department"  placeholder="department" id="department" required autoComplete="off" value={job.department} onChange={handleinput}/>
-<br />
-                        <label htmlFor="email">location</label>
-                        <br />
-                        <input type="text" name="location"  placeholder="location" id="location" required autoComplete="off" value={job.location} onChange={handleinput} />
-<br />
-                        <label htmlFor="salary">salary</label>
-                        <br />
-                        <input type="text" name="salary"  placeholder="salary" id="salary" required autoComplete="off" value={job.salary} onChange={handleinput} />
-<br />
-                        <label htmlFor="jobType">jobType</label>
-                        <br />
-                        <input type="text" name="jobType"  placeholder="enter jobType" id="jobType" required autoComplete="off" value={job.jobType} onChange={handleinput}/>
-<br />
-                        <label htmlFor="requirements">requirements</label>
-                        <br />
-                        <input type="text" name="requirements"  placeholder="requirements" id="requirements" required autoComplete="off" value={job.requirements} onChange={handleinput} />
-<br />
-<label htmlFor="responsibilities">responsibilities</label>
-                        <br />
-                        <input type="text" name="responsibilities"  placeholder="responsibilities" id="responsibilities" required autoComplete="off" value={job.responsibilities} onChange={handleinput} />
-<br />
-<label htmlFor="company">company</label>
-                        <br />
-                        <input type="text" name="company"  placeholder="company" id="company" required autoComplete="off" value={job.company} onChange={handleinput} />
-<br />
-<label htmlFor="salary">contactEmail</label>
-                        <br />
-                        <input type="text" name="contactEmail"  placeholder="contactEmail" id="contactEmail" required autoComplete="off" value={job.contactEmail} onChange={handleinput} />
-<br />
-<label htmlFor="contactPhone">contactPhone</label>
-                        <br />
-                        <input type="text" name="contactPhone"  placeholder="contactPhone" id="contactPhone" required autoComplete="off" value={job.contactPhone} onChange={handleinput} />
-<br />
-                    </div>
-                    <br />
-                    <button type="submit" className="btn btn-submit">Add now</button>
-                   </form>
-                </div>
-
-            </div>
+      <form 
+        onSubmit={handlesubmit} 
+        className="space-y-6"
+      >
+      
+        <div>
+          <label htmlFor="title" className="block text-lg font-semibold text-gray-600">
+            Job Title
+          </label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Enter job title"
+            required
+            autoComplete="off"
+            value={job.title}
+            onChange={handleinput}
+            className="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
         </div>
-    </main>
+
+  
+        <div>
+          <label htmlFor="description" className="block text-lg font-semibold text-gray-600">
+            Description
+          </label>
+          <textarea
+            name="description"
+            id="description"
+            placeholder="Enter job description"
+            required
+            autoComplete="off"
+            value={job.description}
+            onChange={handleinput}
+            className="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 h-32 resize-none"
+          />
+        </div>
+
+        
+        <div>
+          <label htmlFor="department" className="block text-lg font-semibold text-gray-600">
+            Department
+          </label>
+          <input
+            type="text"
+            name="department"
+            id="department"
+            placeholder="Enter department"
+            required
+            autoComplete="off"
+            value={job.department}
+            onChange={handleinput}
+            className="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+
+       
+        <div>
+          <label htmlFor="location" className="block text-lg font-semibold text-gray-600">
+            Location
+          </label>
+          <input
+            type="text"
+            name="location"
+            id="location"
+            placeholder="Enter location"
+            required
+            autoComplete="off"
+            value={job.location}
+            onChange={handleinput}
+            className="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+
+    
+        <div>
+          <label htmlFor="salary" className="block text-lg font-semibold text-gray-600">
+            Salary
+          </label>
+          <input
+            type="text"
+            name="salary"
+            id="salary"
+            placeholder="Enter salary"
+            required
+            autoComplete="off"
+            value={job.salary}
+            onChange={handleinput}
+            className="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+
+     
+        <div>
+          <label htmlFor="jobType" className="block text-lg font-semibold text-gray-600">
+            Job Type
+          </label>
+          <input
+            type="text"
+            name="jobType"
+            id="jobType"
+            placeholder="Enter job type"
+            required
+            autoComplete="off"
+            value={job.jobType}
+            onChange={handleinput}
+            className="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="requirements" className="block text-lg font-semibold text-gray-600">
+            Requirements
+          </label>
+          <textarea
+            name="requirements"
+            id="requirements"
+            placeholder="Enter job requirements"
+            required
+            autoComplete="off"
+            value={job.requirements}
+            onChange={handleinput}
+            className="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 h-24 resize-none"
+          />
+        </div>
+
+       
+        <div>
+          <label htmlFor="responsibilities" className="block text-lg font-semibold text-gray-600">
+            Responsibilities
+          </label>
+          <textarea
+            name="responsibilities"
+            id="responsibilities"
+            placeholder="Enter job responsibilities"
+            required
+            autoComplete="off"
+            value={job.responsibilities}
+            onChange={handleinput}
+            className="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 h-24 resize-none"
+          />
+        </div>
+
+       
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="contactEmail" className="block text-lg font-semibold text-gray-600">
+              Contact Email
+            </label>
+            <input
+              type="email"
+              name="contactEmail"
+              id="contactEmail"
+              placeholder="Enter contact email"
+              required
+              autoComplete="off"
+              value={job.contactEmail}
+              onChange={handleinput}
+              className="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+          <div>
+            <label htmlFor="contactPhone" className="block text-lg font-semibold text-gray-600">
+              Contact Phone
+            </label>
+            <input
+              type="text"
+              name="contactPhone"
+              id="contactPhone"
+              placeholder="Enter contact phone"
+              required
+              autoComplete="off"
+              value={job.contactPhone}
+              onChange={handleinput}
+              className="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+        </div>
+
+     
+        <div className="w-full text-center mt-8">
+          <button
+            type="submit"
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-12 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+          >
+            Add Job
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
 </section>
+
 </>
 
 };

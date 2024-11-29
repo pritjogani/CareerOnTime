@@ -12,6 +12,9 @@ import { Contact } from "./pages/Contact"
 import { Applyforjobs } from "./pages/Applyforjobs";
 import { Page404 } from "./pages/Page404"
 import { Hrlayout } from "./components/layouts/Hrlayout"
+
+import { Hregister } from "./pages/Hregister"
+import { Useregister } from "./pages/Useregister"
 // import { Hrlayout } from "./components/layouts/Hr-layout"
 
 
@@ -29,6 +32,8 @@ const App = () =>{
         <Route path= "/logout" element={<Logout />} />
         <Route path= "/about" element={<About />} />
         <Route path= "/jobs" element={<Jobs />} />
+        <Route path= "/userregister" element={<Useregister />} />
+        <Route path= "/hregister" element={<Hregister />} />
         {/* <Route path= "/hrhome" element={<Hrhome />} /> */}
         <Route path= "/contact" element={<Contact />} />
         <Route path="*" element={<Page404 />} /> 

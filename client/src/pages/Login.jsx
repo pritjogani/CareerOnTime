@@ -73,18 +73,16 @@ const handlesubmit = async (e) =>{
   <main className="w-full max-w-8xl mx-auto px-6 py-12">
     <div className="grid lg:grid-cols-2 items-center gap-8 bg-white shadow-lg rounded-lg overflow-hidden">
       
-      {/* Image Section */}
       <div className="hidden lg:block">
         <img src="loginn.png" alt="Login Illustration" className="w-full max-w-4xl object-cover" />
       </div>
 
-      {/* Form Section */}
       <div className="p-8 md:p-12 lg:p-16">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">Login to Your Account</h1>
 
         <form action="" onSubmit={handlesubmit} className="space-y-6">
           
-          {/* Email Input */}
+          
           <div>
             <label htmlFor="email" className="block text-lg font-medium text-gray-700">Email Address:</label>
             <input
@@ -100,7 +98,7 @@ const handlesubmit = async (e) =>{
             />
           </div>
 
-          {/* Password Input */}
+      
           <div>
             <label htmlFor="password" className="block text-lg font-medium text-gray-700">Password:</label>
             <input
@@ -116,7 +114,7 @@ const handlesubmit = async (e) =>{
             />
           </div>
 
-          {/* Submit Button */}
+     
           <button
             type="submit"
             className="w-full py-3 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition duration-300 ease-in-out"
@@ -125,7 +123,7 @@ const handlesubmit = async (e) =>{
           </button>
         </form>
 
-        {/* Additional Links */}
+      
         <div className="mt-6 text-center">
           <p className="text-gray-600">
             Don't have an account?{' '}
@@ -136,8 +134,11 @@ const handlesubmit = async (e) =>{
         </div>
       </div>
     </div>
+    
   </main>
+  
 </section>
+
 
 
 
