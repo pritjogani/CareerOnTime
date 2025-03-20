@@ -11,6 +11,7 @@ const applyforjob = new mongoose.Schema({
         required: true
     },
     education: {
+            
         type: String,
         required: true
     },
