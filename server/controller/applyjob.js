@@ -10,6 +10,9 @@ try{
 catch(error)
 { 
     console.log(error);
+  
+  
+  console.log(pritjogani)
     console.log(object)
 }
 
