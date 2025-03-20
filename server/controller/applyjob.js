@@ -12,8 +12,8 @@ catch(error)
     console.log(error);
   
   
-  console.log(pritjogani)
-    console.log(object)
+  
+    return res.status(500).json({message:"something went wrong"})
 }
 
 
